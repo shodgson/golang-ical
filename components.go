@@ -83,8 +83,8 @@ func (event *VEvent) SetAllDayStartAt(t time.Time, props ...PropertyParameter) {
 	event.SetProperty(ComponentPropertyDtStart, t.UTC().Format(icalAllDayTimeFormat), props...)
 }
 
-func (event *VEvent) SetEndAt(t time.Time, props ...PropertyParameter) {
-	event.SetProperty(ComponentPropertyDtEnd, t.UTC().Format(icalTimeFormat), props...)
+func (event *VEvent) SetEndAt(t time.Time, l *time.Location, props ...PropertyParameter) {
+	event.SetProperty(ComponentPropertyDtEnd, t.In(l).Format(icalTimeFormat), props...)
 }
 
 func (event *VEvent) SetAllDayEndAt(t time.Time, props ...PropertyParameter) {
