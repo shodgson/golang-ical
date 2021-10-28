@@ -55,7 +55,7 @@ func (c *VEvent) Serialize() string {
 }
 
 const (
-	icalTimeFormat       = "20060102T150405Z"
+	icalTimeFormat       = "20060102T150405"
 	icalAllDayTimeFormat = "20060102"
 )
 
