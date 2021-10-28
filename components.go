@@ -75,8 +75,8 @@ func (event *VEvent) SetSequence(seq int, props ...PropertyParameter) {
 	event.SetProperty(ComponentPropertySequence, strconv.Itoa(seq), props...)
 }
 
-func (event *VEvent) SetStartAt(t time.Time, props ...PropertyParameter) {
-	event.SetProperty(ComponentPropertyDtStart, t.UTC().Format(icalTimeFormat), props...)
+func (event *VEvent) SetStartAt(t time.Time, l *time.Location, props ...PropertyParameter) {
+	event.SetProperty(ComponentPropertyDtStart, t.In(l).Format(icalTimeFormat), props...)
 }
 
 func (event *VEvent) SetAllDayStartAt(t time.Time, props ...PropertyParameter) {
